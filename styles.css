@@ -1,0 +1,583 @@
+* {
+    box-sizing: border-box;
+
+}
+
+html
+{
+    height: 100%;
+
+    Font-family: 'Montserrat Alternates', sans-serif;
+
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("assets/background-img.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px);
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    /*display: flex;*/
+    flex-direction: column;
+    margin: 0;
+
+}
+
+.div-body
+{
+    filter: ;
+    min-height: 100vh;
+
+    /* здесь помещаю все основные блоки в колонну  */
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+}
+
+/*HEADER*/
+header {
+    position: relative;
+    width: 90%;
+    max-width: 1440px;
+    height: 20vh;
+    margin: 0 auto;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: linear-gradient(107.69deg, rgba(242, 221, 213, 0.5) -1.79%, rgba(242, 221, 213, 0) 101.58%, rgba(242, 221, 213, 0.0957066) 101.58%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.logo-title img {
+    width: 50px; /* Замените на фактический размер вашего логотипа */
+    height: 50px; /* Замените на фактический размер вашего логотипа */
+}
+
+.logo-title h1 {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 29px;
+    margin-left: 10px;
+    color: #212042;
+}
+
+/*НАВИГАЦИЯ*/
+
+nav {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+nav a {
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 22px;
+    text-decoration: none;
+    color: #000000;
+    margin-left: 20px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+nav ul li a:hover {
+    color: #212042;
+}
+
+
+/* Удаление отступа у последнего блока */
+.product-cards .product-card:last-child {
+    margin-bottom: 0;
+}
+
+header, .subheader, .subheader-title
+{
+    margin-bottom: 2rem;
+}
+
+main {
+    overflow: hidden; /* Чтобы контейнер "main" принимал высоту содержимого */
+    margin-left: 5em;
+    margin-right: 5em;
+    flex-grow: 1;
+}
+
+.main-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    Font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.dropdown-menu {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.dropdown-menu li {
+    padding: 5px;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/*FILTER*/
+.filters {
+    float: left;
+    width: 30%; /* Ширина блока фильтров */
+}
+
+.characteristics-filter ul {
+    list-style: none; /* Убираем точки списка */
+    padding: 0;
+}
+
+/*ЧЕКБОКСЫ*/
+
+.characteristics-filter input[type="checkbox"] {
+    display: none;
+}
+
+.characteristics-filter label {
+    position: relative;
+    padding-left: 30px; /* Отступ слева для места под квадратик */
+    cursor: pointer;
+}
+
+.characteristics-filter label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #F2DDD5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 3px;
+}
+
+.characteristics-filter input[type="checkbox"]:checked + label::before {
+    background-color: #268C5C;
+}
+
+.characteristics-filter label span {
+    position: absolute;
+    left: 30px; /* Отступ слева для текста после квадратика */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*ЦЕНА*/
+
+/* Настраиваем вид курсора при наведении на квадратик */
+.characteristics-filter label::before {
+    cursor: pointer;
+}
+
+.price-slider {
+    -webkit-appearance: none; /* Убираем стандартный стиль ползунка в WebKit браузерах */
+    width: 100%; /* Ширина ползунка */
+    height: 2px; /* Высота ползунка */
+    background-color: black; /* Цвет полоски */
+    outline: none; /* Убираем контур вокруг ползунка */
+    margin-bottom: 20px;
+}
+
+.price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убираем стандартный стиль для ползунка в WebKit браузерах */
+    width: 2em; /* Ширина ромбика */
+    height: 2em; /* Высота ромбика */
+    background-color: #F2DDD5; /* Цвет ромбика */
+    border: 1.3px solid rgba(0, 0, 0, 0.8); /* Обводка ромбика */
+    border-radius: 3px; /* Радиус скругления углов ромбика */
+    cursor: pointer; /* Изменение вида курсора при наведении */
+    -webkit-transform: rotate(45deg); /* Поворот ромбика на 45 градусов */
+    transform: rotate(45deg); /* Поворот ромбика на 45 градусов */
+}
+
+.price-slider::-moz-range-thumb {
+    width: 20px; /* Ширина ромбика */
+    height: 20px; /* Высота ромбика */
+    background-color: #F2DDD5; /* Цвет ромбика */
+    border: 1px solid rgba(0, 0, 0, 0.8); /* Обводка ромбика */
+    border-radius: 3px; /* Радиус скругления углов ромбика */
+    cursor: pointer; /* Изменение вида курсора при наведении */
+    transform: rotate(45deg); /* Поворот ромбика на 45 градусов */
+}
+
+/* Настройка вида полоски в Firefox */
+.price-slider::-moz-range-track {
+    background-color: black; /* Цвет полоски */
+    height: 8px; /* Высота полоски */
+    border: none; /* Убираем границу полоски */
+}
+
+.price-range {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.price-range input {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.price-range span {
+    margin: 0 10px;
+}
+
+#price-from{
+    background: #F2DDD5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 40px 0px 0px 40px;
+    font-family: 'Montserrat Alternates';
+}
+
+#price-to{
+    background: #F2DDD5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 0px 40px 40px 0px;
+    font-family: 'Montserrat Alternates';
+}
+
+.characteristics-filter li {
+
+    margin-bottom: 1em; /* Отступ между пунктами списка */
+
+}
+
+/*PRODUCT CARD*/
+.product-cards {
+    float: right;
+    width: 70%; /* Ширина блока карточек товара */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Расстояние между блоками */
+.product-card {
+    margin-bottom: 20px;
+    width: calc(33.33% - 10px); /* 33.33% - 10px для равномерного распределения по трем столбцам */
+    box-sizing: border-box;
+}
+
+/*ПРИКОЛЫ С КАКТУСАМИ*/
+
+.rating-item {
+    background: #F2DDD5;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 40px;
+    margin-bottom: 20px;
+    width: 70%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.rating-item h4 {
+    text-align: center;
+}
+
+.rating-item .stars {
+    margin-bottom: 20px;
+}
+
+
+.rating-item .stars {
+    display: inline-block;
+}
+
+.rating-item .stars input[type="radio"] {
+    display: none; /* Скрываем стандартные инпуты */
+}
+
+.rating-item .stars label {
+    display: inline-block;
+    width: 20px; /* Ширина изображения кактуса */
+    height: 20px; /* Высота изображения кактуса */
+    background-image: url("assets/cactus-offline.svg"); /* Изображение не выбранного кактуса */
+    background-size: cover;
+    cursor: pointer;
+}
+
+.rating-item .stars input[type="radio"]:checked + label {
+    background-image: url("assets/cactus-online.svg"); /* Изображение выбранного кактуса */
+}
+
+.rating-filter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -3em;
+    margin-bottom: 20px;
+}
+
+/*Кнопочки*/
+
+.filter-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -3em;
+
+}
+
+.apply-button {
+
+    font-family: 'Montserrat Alternates';
+    font-size: 1rem;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: #F2DDD5;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+
+    border: 1px solid #268C5C;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #268C5C;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.apply-button:hover {
+    background-color: #1e7e4e; /* Изменение цвета при наведении */
+    border-color: #1e7e4e; /* Изменение цвета границы при наведении */
+}
+
+.apply-button:active {
+    background-color: #135032; /* Изменение цвета при нажатии */
+    border-color: #135032; /* Изменение цвета границы при нажатии */
+}
+
+.reset-button {
+    font-family: 'Montserrat Alternates';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 29px;
+    color: #000000;
+    background: none;
+    border: none;
+}
+
+.reset-button:hover {
+    color: #2c0c0c; /* Изменение цвета текста при наведении */
+}
+
+.reset-button:active {
+    color: #178f56; /* Изменение цвета текста при нажатии */
+}
+
+/*карточки товаров*/
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card img {
+    width: 10em;
+    height: 10em;
+    object-fit: contain;
+    margin-bottom: -2em;
+    z-index: 1;
+}
+
+.card-wrapper {
+    background: linear-gradient(116.02deg, rgba(242, 221, 213, 0.5) -2.16%, rgba(242, 221, 213, 0) 104.43%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    backdrop-filter: blur(100px);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 45px;
+    text-align: center;
+}
+
+.product-price{
+    display: flex;
+    align-items: center;
+    color: #F2DDD5;
+    padding: 0.35rem;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    border: 1px solid #268C5C;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #268C5C;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    z-index: 1;
+}
+
+.card-wrapper h4 {
+    font-weight: bold;
+}
+
+.card-wrapper .product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+
+.btn-add-to-cart,
+.btn-add-to-favorites {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.btn-add-to-cart img,
+.btn-add-to-favorites img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.btn-add-to-cart:active,
+.btn-add-to-favorites:active {
+    filter: brightness(80%);
+}
+
+/*footer*/
+
+.slider-section{
+    width: 100%;
+}
+
+.product-slider{
+    width: 100%;
+    height: 100%;
+}
+
+.product-slider {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-slider .product-card {
+    width: calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.product-slider .product-card:nth-child(3n) {
+    margin-right: 0;
+}
+
+footer {
+    width: 90%;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background: linear-gradient(107.69deg, rgba(242, 221, 213, 0.5) -1.79%, rgba(242, 221, 213, 0) 101.58%, rgba(242, 221, 213, 0.0957066) 101.58%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+footer{
+
+}

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    </head>
+
+<body>
+    <div class="background-container"></div>
+
+    <div class="div-body">
+
+        <header>
+            <div class="logo-title">
+                <a href="#"><img src="assets/logo.svg" alt="Логотип"></a>
+                <h1>КОЛЮЧКА</h1>
+            </div>
+            <nav>
+                <div class="nav-left">
+                    <a href="#">ГЛАВНАЯ</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="#">Каталог</a>
+                    <a href="#">Отзывы</a>
+                    <a href="#">О нас</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            ГЛАВНАЯ / КАТАЛОГ
+            <div class="main-title">
+                <h1 class="subheader-title">КАТАЛОГ КАКТУСОВ</h1>
+                <div class="dropdown">
+                    <button class="dropdown-toggle">Сортировать по: <span id="selected-filter">название</span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="selectFilter('название')">название</a></li>
+                        <li><a href="#" onclick="selectFilter('алфавит')">алфавит</a></li>
+                        <li><a href="#" onclick="selectFilter('цена')">цена</a></li>
+                        <li><a href="#" onclick="selectFilter('рейтинг')">рейтинг</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="price-filter">
+                    <h3>Цена</h3>
+                    <input type="range" min="0" max="1000" value="500" class="price-slider">
+                </div>
+
+                <div class="price-range">
+                    <input type="text" id="price-from" placeholder="ОТ">
+                    <span>-</span>
+                    <input type="text" id="price-to" placeholder="ДО">
+                </div>
+
+                <div class="characteristics-filter">
+                <!-- <h3>Особенности</h3>-->
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="tasty"><label for="tasty">ВКУСНЫЙ</label></li>
+                        <li><input type="checkbox" id="flower"><label for="flower">ЕСТЬ ЦВЕТОЧЕК</label></li>
+                        <li><input type="checkbox" id="cucumber"><label for="cucumber">ПОХОЖ НА ОГУРЕЦ</label></li>
+                    </ul>
+                </div>
+
+                <div class="rating-filter">
+<!--  <h3>Характеристики</h3>-->
+                    <div class="rating-item">
+                        <h4>Урон колючками</h4>
+                        <div class="stars">
+                            <input type="radio" id="rating1" name="rating1" value="1"><label for="rating1"></label>
+                            <input type="radio" id="rating2" name="rating1" value="2"><label for="rating2"></label>
+                            <input type="radio" id="rating3" name="rating1" value="3"><label for="rating3"></label>
+                            <input type="radio" id="rating4" name="rating1" value="4"><label for="rating4"></label>
+                            <input type="radio" id="rating5" name="rating1" value="5"><label for="rating5"></label>
+                        </div>
+                    </div>
+
+                    <div class="rating-item">
+                        <h4>Стойкость</h4>
+                        <div class="stars">
+                            <input type="radio" id="rating6" name="rating2" value="1"><label for="rating6"></label>
+                            <input type="radio" id="rating7" name="rating2" value="2"><label for="rating7"></label>
+                            <input type="radio" id="rating8" name="rating2" value="3"><label for="rating8"></label>
+                            <input type="radio" id="rating9" name="rating2" value="4"><label for="rating9"></label>
+                            <input type="radio" id="rating10" name="rating2" value="5"><label for="rating10"></label>
+                        </div>
+                    </div>
+
+                    <div class="rating-item">
+                        <h4>Неотразимость</h4>
+                        <div class="stars">
+                            <input type="radio" id="rating11" name="rating3" value="1"><label for="rating11"></label>
+                            <input type="radio" id="rating12" name="rating3" value="2"><label for="rating12"></label>
+                            <input type="radio" id="rating13" name="rating3" value="3"><label for="rating13"></label>
+                            <input type="radio" id="rating14" name="rating3" value="4"><label for="rating14"></label>
+                            <input type="radio" id="rating15" name="rating3" value="5"><label for="rating15"></label>
+                        </div>
+                    </div>
+                    <!-- Аналогичные блоки для "Стойкость" и "Неотразимость" -->
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="apply-button">ПРИМЕНИТЬ</button>
+                    <button class="reset-button">СБРОСИТЬ</button>
+                </div>
+
+            </div>
+
+            <div class="product-cards">
+
+                <div class="product-card">
+                    <img src="assets/items/item-1.svg" alt="Product 1">
+
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 1</h4>
+                            <p>Описание 1</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">99 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 2 -->
+                <div class="product-card">
+                    <img src="assets/items/item-2.svg" alt="Product 2">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 2</h4>
+                            <p>Описание 2</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">149 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 3 -->
+                <div class="product-card">
+                    <img src="assets/items/item-3.svg" alt="Product 3">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 3</h4>
+                            <p>Описание 3</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">199 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 4 -->
+                <div class="product-card">
+                    <img src="assets/items/item-2.svg" alt="Product 4">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 4</h4>
+                            <p>Описание 4</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">249 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 5 -->
+                <div class="product-card">
+                    <img src="assets/items/item-3.svg" alt="Product 5">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 5</h4>
+                            <p>Описание 5</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">299 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 6 -->
+                <div class="product-card">
+                    <img src="assets/items/item-2.svg" alt="Product 6">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 6</h4>
+                            <p>Описание 6</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">349 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 7 -->
+                <div class="product-card">
+                    <img src="assets/items/item-3.svg" alt="Product 7">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 7</h4>
+                            <p>Описание 7</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">399 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 8 -->
+                <div class="product-card">
+                    <img src="assets/items/item-2.svg" alt="Product 8">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 8</h4>
+                            <p>Описание 8</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">449 руб.</span>
+                    </div>
+                </div>
+
+                <!-- Карточка товара 9 -->
+                <div class="product-card">
+                    <img src="assets/items/item-1.svg" alt="Product 9">
+                    <div class="card-wrapper">
+                        <div class="product-info">
+                            <h4>Товар 9</h4>
+                            <p>Описание 9</p>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn-add-to-cart" onclick="addToCart()">
+                                <img src="assets/card.svg" alt="Добавить в корзину">
+                            </button>
+                            <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                <img src="assets/heart.svg" alt="Добавить в избранное">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">499 руб.</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <div class="footer-section">
+                <h3>НОВИНКИ и АКЦИИ</h3>
+            </div>
+
+            <div class="footer-section, slider-section">
+                <!--СЛАЙДЕР-->
+                <div class="product-slider">
+                    <div class="product-card">
+                        <img src="assets/items/item-1.svg" alt="Product 1">
+
+                        <div class="card-wrapper">
+                            <div class="product-info">
+                                <h4>Товар 1</h4>
+                                <p>Описание 1</p>
+                            </div>
+
+                            <div class="product-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart()">
+                                    <img src="assets/card.svg" alt="Добавить в корзину">
+                                </button>
+                                <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                    <img src="assets/heart.svg" alt="Добавить в избранное">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">99 руб.</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка товара 2 -->
+                    <div class="product-card">
+                        <img src="assets/items/item-2.svg" alt="Product 2">
+                        <div class="card-wrapper">
+                            <div class="product-info">
+                                <h4>Товар 2</h4>
+                                <p>Описание 2</p>
+                            </div>
+
+                            <div class="product-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart()">
+                                    <img src="assets/card.svg" alt="Добавить в корзину">
+                                </button>
+                                <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                    <img src="assets/heart.svg" alt="Добавить в избранное">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">149 руб.</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка товара 3 -->
+                    <div class="product-card">
+                        <img src="assets/items/item-3.svg" alt="Product 3">
+                        <div class="card-wrapper">
+                            <div class="product-info">
+                                <h4>Товар 3</h4>
+                                <p>Описание 3</p>
+                            </div>
+
+                            <div class="product-actions">
+                                <button class="btn-add-to-cart" onclick="addToCart()">
+                                    <img src="assets/card.svg" alt="Добавить в корзину">
+                                </button>
+                                <button class="btn-add-to-favorites" onclick="addToFavorites()">
+                                    <img src="assets/heart.svg" alt="Добавить в избранное">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">199 руб.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--СЛАЙДЕР-->
+            </div>
+
+            <div class="footer-section">
+                <p class="small-text">Здесь располагается самая скучная скука, которую никто не читает. Если Вы всё же обратили на это внимание, дайте знать.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </div>
+
+</body>
+
+</html>
+
+
