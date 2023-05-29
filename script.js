@@ -41,6 +41,35 @@ priceSlider.addEventListener('input', function() {
 });
 
 
+const checkboxes = document.querySelectorAll(".characteristics-filter input[type='checkbox']");
+const ratingRadios = document.querySelectorAll(".rating-filter input[type='radio']");
+
+// Задаем дефолтные значения для фильтров
+const defaultPrice = 500;
+const defaultFrom = ""; // Замените на дефолтное значение "ОТ"
+const defaultTo = ""; // Замените на дефолтное значение "ДО"
+
+const defaultCheckboxes = [false, false, false]; // Замените на дефолтные значения чекбоксов
+
+const defaultRating = 1; // Замените на дефолтное значение рейтинга
+
+// Функция для сброса значений фильтров
+function resetFilters() {
+    priceSlider.value = defaultPrice;
+    priceFromInput.value = defaultFrom;
+    priceToInput.value = defaultTo;
+
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = defaultCheckboxes[index];
+    });
+
+
+}
+
+// Обработчик события для кнопки "СБРОСИТЬ"
+const resetButton = document.querySelector(".reset-button");
+resetButton.addEventListener("click", resetFilters);
+
 
 
 
